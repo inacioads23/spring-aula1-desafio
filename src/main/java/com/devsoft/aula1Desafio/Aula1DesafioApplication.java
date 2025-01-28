@@ -1,5 +1,7 @@
 package com.devsoft.aula1Desafio;
 
+import java.util.Locale;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -17,14 +19,15 @@ public class Aula1DesafioApplication implements CommandLineRunner{
 	private OrderService orderService;	
 	
 	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
 		SpringApplication.run(Aula1DesafioApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		Order order = new Order(1309, 95.9, 0.0);		
-		System.out.printf("%nPedido código: %d", order.getCode());
-		System.out.printf("%nValor Total: R$ %.2f", orderService.total(order));
+		Order order = new Order(1309, 95.90, 0.0);		
+		System.out.printf("%nPedido código %d", order.getCode());
+		System.out.printf("%nValor Total: R$ %.2f%n%n", orderService.total(order));
 	}
 
 }

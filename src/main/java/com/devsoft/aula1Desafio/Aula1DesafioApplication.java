@@ -22,7 +22,9 @@ public class Aula1DesafioApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		
+		Order order = new Order(1309, 95.9, 0.0);		
+		System.out.printf("%nPedido código: %d", order.getCode());
+		System.out.printf("%nValor Total: R$ %.2f", orderService.total(order));
 	}
 
 }
